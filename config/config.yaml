@@ -6,3 +6,8 @@ data_ingestion:
   source_URL: https://github.com/Godwin45/datasets/raw/main/student.zip
   local_data_file: artifacts/data_ingestion/data.zip
   unzip_dir: artifacts/data_ingestion
+
+feature_engineering:
+  root_dir: artifacts/data_ingestion
+  student_df: artifacts/data_ingestion/data.csv
+

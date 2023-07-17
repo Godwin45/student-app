@@ -2,7 +2,8 @@ from studentApp.constants import *
 import os
 from pathlib import Path
 from studentApp.utils.common import read_yaml, create_directories
-from studentApp.entity.config_entity import (DataIngestionConfig)
+from studentApp.entity.config_entity import (DataIngestionConfig,
+                                               FeatureConfig)
 
 
 
@@ -33,3 +34,15 @@ class ConfigurationManager:
 
         return data_ingestion_config
       
+    def get_feature_engineering_config(self) -> FeatureConfig:
+        config = self.config.feature_engineering
+        
+        create_directories([config.root_dir])
+
+        feature_eng_config = FeatureConfig(
+            root_dir=Path(config.root_dir),
+            student_df=Path(config.student_df),
+          
+        )
+
+        return  feature_eng_config

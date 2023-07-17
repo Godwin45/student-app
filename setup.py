@@ -8,7 +8,7 @@ __version__ = "0.0.0"
 
 REPO_NAME = "Student-App-Project"
 AUTHOR_USER_NAME = "Godwin45"
-SRC_REPO = "cnnClassifier"
+SRC_REPO = "studentApp"
 AUTHOR_EMAIL = "godwinmuthomi12@gmal.com"
 
 

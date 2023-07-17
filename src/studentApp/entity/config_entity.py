@@ -13,3 +13,8 @@ class DataIngestionConfig:
 class FeatureConfig:
     root_dir: Path
     student_df: Path
+
+@dataclass(frozen=True)
+class DataTransformationConfig:
+    root_dir: Path
+    train_df: Path

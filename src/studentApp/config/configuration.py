@@ -3,7 +3,8 @@ import os
 from pathlib import Path
 from studentApp.utils.common import read_yaml, create_directories
 from studentApp.entity.config_entity import (DataIngestionConfig,
-                                               FeatureConfig)
+                                               FeatureConfig,
+                                               DataTransformationConfig)
 
 
 
@@ -46,3 +47,16 @@ class ConfigurationManager:
         )
 
         return  feature_eng_config
+
+    def get_data_transformation_config(self) -> DataTransformationConfig:
+        config = self.config.data_transformation
+        
+        create_directories([config.root_dir])
+
+        data_transformation_config = DataTransformationConfig(
+            root_dir=Path(config.root_dir),
+            train_df=Path(config.train_df),
+          
+        )
+
+        return  data_transformation_config

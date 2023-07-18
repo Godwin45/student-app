@@ -15,3 +15,8 @@ data_transformation:
   root_dir: artifacts/data_ingestion
   train_df: artifacts/data_ingestion/train.csv
   test_df: artifacts/data_ingestion/text.csv
+
+training:
+  root_dir: artifacts/data_ingestion
+  train_df: artifacts/data_ingestion/train.csv
+  trained_model_path: artifacts/training

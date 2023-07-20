@@ -18,3 +18,9 @@ class FeatureConfig:
 class DataTransformationConfig:
     root_dir: Path
     train_df: Path
+
+@dataclass(frozen=True)
+class TrainingConfig:
+    root_dir: Path
+    training_data: Path
+    trained_model_path: Path

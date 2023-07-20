@@ -1,5 +1,6 @@
 from studentApp.config.configuration import ConfigurationManager
 from studentApp.components.data_transformation import DataTransformation
+from studentApp.components.training import Training
 from studentApp import logger
 
 
@@ -14,9 +15,11 @@ class DataTransformationPipeline:
         data_transformation_config = config.get_data_transformation_config()
         data_transformation = DataTransformation(config=data_transformation_config)
         data_transformation.transformation_data()
-
-
-
+        X_train = data_transformation.X
+        y_train = data_transformation.y
+        training_config = config.get_training_config()
+        training = Training(config=training_config)
+        training.train(X_train, y_train)
 
 if __name__ == '__main__':
     try:

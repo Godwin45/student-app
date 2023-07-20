@@ -4,7 +4,8 @@ from pathlib import Path
 from studentApp.utils.common import read_yaml, create_directories
 from studentApp.entity.config_entity import (DataIngestionConfig,
                                                FeatureConfig,
-                                               DataTransformationConfig)
+                                               DataTransformationConfig,
+                                               TrainingConfig)
 
 
 
@@ -60,3 +61,20 @@ class ConfigurationManager:
         )
 
         return  data_transformation_config
+    
+    def get_training_config(self):
+            training = self.config.training
+            training_data_path = 'artifacts/data_ingestion/train.csv'  # Replace with the correct file path
+            training_root_dir = 'artifacts'  # Replace with the desired root directory path
+
+            create_directories([Path(training_root_dir)])
+
+            training_config = TrainingConfig(
+                root_dir=Path(training_root_dir),
+                training_data=Path(training_data_path),
+                trained_model_path=Path(training.trained_model_path),
+
+                # Add other configuration attributes as needed
+            )
+
+            return training_config
